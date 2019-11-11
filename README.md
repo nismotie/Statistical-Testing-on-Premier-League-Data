@@ -28,4 +28,7 @@ Hypotheses to be tested:
     * $H_1$: If the if there are more cards in a game, it significantly more probable that there will be more goals.
     * $h_2$: If there are more cards in a game, it is significantly less probably that there will be more goals. 
 
-4. 
+4. If a team is winning at half time are they more likely to win at full-time
+    * $H_0$: A team is no more likely to win the game if they are leading at half time.
+    * $H_1$: A team is more likely to win the game outright if they are leading at half time.
+    * $H_2$: A team is less likely to win the game outright if they are leading at half time.
