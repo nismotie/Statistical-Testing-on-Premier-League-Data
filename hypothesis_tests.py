@@ -11,7 +11,14 @@ import numpy as np
 from scipy import stats
 import math
 
-def make_t_dist(t, t_critical, ):
+def make_t_dist(t, t_critical, dof, title):
+    """
+    makes a visualisation of a t-distribution, with lines for t-statistic and critical t-value
+    :param t: t-statistic
+    :param t_critical: the critical t value 
+    :param dof: the welch's degress of freedom
+    :title: the desired title of the graph
+    """
     
     x= np.linspace(-5, 5, 200)
     
@@ -28,7 +35,7 @@ def make_t_dist(t, t_critical, ):
     ax.axvline(t_critical, color='purple', linestyle='--', lw=2, label='critical t-value')
     ax.fill_betweenx(y, x, t_critical, where = x>t_critical)
     ax.legend()
-    ax.title('t-distribution for ')
+    plt.title(title)
     plt.show()
 
 def welch_dof(a, b):
@@ -44,6 +51,12 @@ def welch_dof(a, b):
     numerator = (s1/n1 + s2/n2)**2
     denominator = (s1/ n1)**2/(n1 - 1) + (s2/ n2)**2/(n2 - 1)
     return numerator/denominator
+
+def cohen_d:
+    nx = len(group1)
+    ny = len(group2)
+    dof = nx + ny - 2
+    return (mean(x) - mean(y)) / sqrt(((nx-1)*std(x, ddof=1) ** 2 + (ny-1)*std(y, ddof=1) ** 2) / dof)
 
 def create_sample_dists(cleaned_data, y_var=None, categories=[]):
     """
@@ -162,10 +175,6 @@ def hypothesis_test_three(alpha=None, group1, group2):
     t_stat = tt_results[0]
     p_val = tt_results[1]
     
-    nx = len(group1)
-    ny = len(group2)
-    dof = nx + ny - 2
-    coh_d = (mean(x) - mean(y)) / sqrt(((nx-1)*std(x, ddof=1) ** 2 + (ny-1)*std(y, ddof=1) ** 2) / dof)
 
     # starter code for return statement and printed results
     status = compare_pval_alpha(p_val, alpha)
