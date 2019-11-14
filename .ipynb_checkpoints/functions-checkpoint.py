@@ -2,7 +2,10 @@ import numpy as np
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 
-
+def sampling_selecting(data, n, column):
+    sample=data.sample(n, random_state=1)
+    sampled_value=sample[column]
+    return sampled_value
 
 def welch_dof(a, b):
     s1 = a.var(ddof=1)

@@ -5,6 +5,7 @@ This repo contains:
 * Three python starter files
 * Three test files
 * A starter jupyter notebook
+* Our main anaylisis takes place in the hypothesis_testing.ipynb
 
 Datasets used:
 * https://www.football-data.org/documentation/api - Football Data API for information about premier league matches 2018/2019
@@ -16,8 +17,7 @@ Hypotheses to be tested:
 1. Is a team more likely to win playing at home?
     * $H_0$: There is no relationship between the team's home and away match performance.
     * $H_1$: A team is significantly more likely to win if they play at home.
-    * $H_2$: A team is significantly less likely to win if they play at home.
-
+  
 2. Is there a relationship between the age of a player and the minutes that the player plays?
     * $H_0$: There is no relationship between a player's age and the minutes that a player plays in a season.
     * $H_1$: A player is significantly more likely to play more minutes if they are older.
@@ -28,7 +28,8 @@ Hypotheses to be tested:
     * $H_1$: If the if there are more cards in a game, it significantly more probable that there will be more goals.
     * $h_2$: If there are more cards in a game, it is significantly less probably that there will be more goals. 
 
-4. If a team is winning at half time are they more likely to win at full-time
-    * $H_0$: A team is no more likely to win the game if they are leading at half time.
-    * $H_1$: A team is more likely to win the game outright if they are leading at half time.
-    * $H_2$: A team is less likely to win the game outright if they are leading at half time.
+4. If a foreign player has more goals than an english player?
+    * $H_0$: A foreign player is no more likely to score more goals than an english player.
+    * $H_1$: A foreign player is more likely to score more goals than an english player.
+
+    
