@@ -5,6 +5,7 @@ This repo contains:
 * Three python starter files
 * Three test files
 * A starter jupyter notebook
+* Our main anaylisis takes place in the hypothesis_testing.ipynb
 
 Datasets used:
 * https://www.football-data.org/documentation/api - Football Data API for information about premier league matches 2018/2019
