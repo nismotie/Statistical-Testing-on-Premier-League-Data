@@ -38,7 +38,7 @@ def make_t_dist(t, t_critical, dof, title):
     
     # plot a vertical line for our measured difference in rates t-statistic
     ax.axvline(t, color='#5bd46b', linestyle=':', lw=4,label=f't-statistic: {round(t, 3)}')
-    ax.axvline(t_critical, color='#ff7a70', linestyle='--', lw=4, label=f'critical t-value: {round(t_critical, 3)}')
+    ax.axvline(t_critical, color='git add', linestyle='--', lw=4, label=f'critical t-value: {round(t_critical, 3)}')
     ax.fill_betweenx(y, x, t_critical, where = x>t_critical)
     ax.legend()
     plt.title(title)
