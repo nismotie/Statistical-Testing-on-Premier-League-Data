@@ -12,6 +12,11 @@ from scipy import stats
 import math
 import matplotlib.pyplot as plt
 
+def sampling(data, n, column, seed):
+    sample=data.sample(n, random_state=seed)
+    sampled_value=sample[column]
+    return sampled_value
+
 def make_t_dist(t, t_critical, dof, title):
     """
     makes a visualisation of a t-distribution, with lines for t-statistic and critical t-value
@@ -29,35 +34,43 @@ def make_t_dist(t, t_critical, dof, title):
     
     ax = fig.gca()
     
-    ax.plot(x, y, linewidth=3, color='darkblue')
+    ax.plot(x, y, linewidth=3, color='#4a4a5e')
     
     # plot a vertical line for our measured difference in rates t-statistic
-    ax.axvline(t, color='yellow', linestyle='--', lw=2,label=f't-statistic: {round(t, 3)}')
-    ax.axvline(t_critical, color='purple', linestyle='--', lw=2, label=f'critical t-value: {round(t_critical, 3)}')
+    ax.axvline(t, color='#5bd46b', linestyle=':', lw=4,label=f't-statistic: {round(t, 3)}')
+    ax.axvline(t_critical, color='#ff7a70', linestyle='--', lw=4, label=f'critical t-value: {round(t_critical, 3)}')
     ax.fill_betweenx(y, x, t_critical, where = x>t_critical)
     ax.legend()
     plt.title(title)
     plt.show()
 
-# def welch_dof(a, b):
-#     """
-#     This module is for calculating the degrees of freedom that go into a welch's t-test
-#     :param a: first sample to compare
-#     :param b: second sample to compare
-#     """
-#     s1 = a.var(ddof=1)
-#     s2 = b.var(ddof=1)
-#     n1 = len(a)
-#     n2 = len(b)
-#     numerator = (s1/n1 + s2/n2)**2
-#     denominator = (s1/ n1)**2/(n1 - 1) + (s2/ n2)**2/(n2 - 1)
-#     return numerator/denominator
+def welch_dof(a, b):
+    """
+    This module is for calculating the degrees of freedom that go into a welch's t-test
+    :param a: first sample to compare
+    :param b: second sample to compare
+    """
+    s1 = a.var(ddof=1)
+    s2 = b.var(ddof=1)
+    n1 = len(a)
+    n2 = len(b)
+    numerator = (s1/n1 + s2/n2)**2
+    denominator = (s1/ n1)**2/(n1 - 1) + (s2/ n2)**2/(n2 - 1)
+    return numerator/denominator
 
-# def cohen_d():
-#     nx = len(group1)
-#     ny = len(group2)
-#     dof = nx + ny - 2
-#     return (mean(x) - mean(y)) / sqrt(((nx-1)*std(x, ddof=1) ** 2 + (ny-1)*std(y, ddof=1) ** 2) / dof)
+def cohen_d(group1, group2):
+
+    diff = group1.mean() - group2.mean()
+
+    n1, n2 = len(group1), len(group2)
+    var1 = group1.var()
+    var2 = group2.var()
+    
+    pooled_var = (n1 * var1 + n2 * var2) / (n1 + n2)
+
+    d = diff / np.sqrt(pooled_var)
+    
+    return d
 
 # def create_sample_dists(cleaned_data, y_var=None, categories=[]):
 #     """

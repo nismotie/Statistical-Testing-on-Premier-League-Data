@@ -6,22 +6,12 @@ A framework for each type of visualization is provided.
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy.stats import norm
 
-# Set specific parameters for the visualizations
-large = 22; med = 16; small = 12
-params = {'axes.titlesize': large,
-          'legend.fontsize': med,
-          'figure.figsize': (16, 10),
-          'axes.labelsize': med,
-          'xtick.labelsize': med,
-          'ytick.labelsize': med,
-          'figure.titlesize': large}
-plt.rcParams.update(params)
-plt.style.use('seaborn-whitegrid')
-sns.set_style("white")
+sns.set_style('darkgrid')
 
 
-def overlapping_density(package=None, input_vars=None, target_vars=None):
+def overlapping_density(group1, group2, label1, label2, title):
     """
     Set the characteristics of your overlapping density plot
     All arguments are set to None purely as a filler right now
@@ -33,24 +23,20 @@ def overlapping_density(package=None, input_vars=None, target_vars=None):
 
     PARAMETERS
 
-    :param package:        should only take sns or matplotlib as inputs, any other value should throw and error
-    :param input_vars:     should take the x variables/categories you want to plot
-    :param target_vars:    the y variable of your plot, what you are comparing
-    :return:               fig to be enhanced in subsequent visualization functions
+    :param group1: first group for comparison
+    :param group2: second group for comparison
+    :param label1: label for first group
+    :param label2: label for second group 
+    :return: returns figure
     """
 
     # Set size of figure
-    fig = plt.figure(figsize=(16, 10), dpi=80)
+    fig = plt.figure(figsize=(10, 7), dpi=80)
 
-    # Starter code for figuring out which package to use
-    if package == "sns":
-        for variable in input_vars:
-            sns.distplot(variable, hist = False, kde = True, kde_kws = {'shade': True, 'linewidth': 3})
-    elif package == 'matplotlib':
-        for variable in input_vars:
-            plt.plot(..., label=None, linewidth=None, color=None, figure = fig)
-
-    return fig
+    sns.distplot(group1, hist=False, kde_kws={"shade": True}, color = '#5bd46b', label=label1)
+    sns.distplot(group2, hist=False, kde_kws={"shade": True}, color = '#ff7a70', label=label2)
+    plt.legend()
+    plt.title(title)
 
 
 
