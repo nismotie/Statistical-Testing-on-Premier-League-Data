@@ -17,12 +17,13 @@ def sampling(data, n, column, seed):
     sampled_value=sample[column]
     return sampled_value
 
-def make_t_dist(t, t_critical, dof, title):
+def make_t_dist(t, t_critical, dof, title, direction='right'):
     """
     makes a visualisation of a t-distribution, with lines for t-statistic and critical t-value
     :param t: t-statistic
     :param t_critical: the critical t value 
     :param dof: the welch's degress of freedom
+    :param direction: left or right, depending on which end of the t-distribution we're testing
     :title: the desired title of the graph
     """
     
@@ -36,13 +37,22 @@ def make_t_dist(t, t_critical, dof, title):
     
     ax.plot(x, y, linewidth=3, color='#4a4a5e')
     
-    # plot a vertical line for our measured difference in rates t-statistic
-    ax.axvline(t, color='#5bd46b', linestyle=':', lw=4,label=f't-statistic: {round(t, 3)}')
-    ax.axvline(t_critical, color='#ff7a70', linestyle='--', lw=4, label=f'critical t-value: {round(t_critical, 3)}')
-    ax.fill_betweenx(y, x, t_critical, where = x>t_critical)
-    ax.legend()
-    plt.title(title)
-    plt.show()
+    if direction == 'right':
+        # plot a vertical line for our measured difference in rates t-statistic
+        ax.axvline(t, color = '#5bd46b', linestyle=':', lw=4,label=f't-statistic: {round(t, 3)}')
+        ax.axvline(t_critical, color = '#ff7a70', linestyle='--', lw=4, label=f'critical t-value{round(t_critical,3)}')
+        ax.fill_betweenx(y, x, t_critical, where = x>t_critical)
+        ax.legend()
+        plt.title(title)
+        plt.show()
+    else:
+         # plot a vertical line for our measured difference in rates t-statistic
+        ax.axvline(t, color = '#5bd46b', linestyle=':', lw=4,label=f't-statistic: {round(t, 3)}')
+        ax.axvline(t_critical, color = '#ff7a70', linestyle='--', lw=4, label=f'critical t-value{round(t_critical,3)}')
+        ax.fill_betweenx(y, x, t_critical, where = x<t_critical)
+        ax.legend()
+        plt.title(title)
+        plt.show()
 
 def welch_dof(a, b):
     """
