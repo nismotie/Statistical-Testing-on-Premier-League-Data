@@ -1,5 +1,51 @@
 # mod3_project
 
+Team Members: Itua Etiobhio, Titus Bridgwood, Inesa Lisnic
+
+Goals
+* Decide on a subject to investigate and find relevant APIs and data sources
+* Create four hypotheses based on our research on the confirmed subject
+* Collect relevant data based on our hypothesis
+* Conduct data cleaning and exploratory data analysis
+* Sampling the data and perform appropriate t-tests to the data samples 
+* Analyse t-test results and make decisions on the null hypothesis 
+* Make conclusions and create a presention on our findings
+
+Responsibilities
+* All team members to agree on the subject to investigate 
+* All team members to agree on four hypotheses 
+* Each member to pick atleast one hypothesis and conduct the appropriate t-test 
+* Each member to review t-test findings, make conclusions and actionable insights 
+* Each memebr to create technical notebook based on coducting the t-test and t-test findings
+* All team members to collabrate on creating the presentation and present the results of
+  the analysis
+
+Summary of files
+
+data_cleaning.py: Includes functions that perform the following tasks;
+* Deleting rows with null values and duplicated rows
+* Deleting brackts from the object columns 
+* Changing column names in lowercase and deleting white spaces  
+
+hypothesis_test.py: Includes functions that perform the following tasks;
+* Creates random samples from data set 
+* Creates a visualisation of a t-distribution, with lines for t-statistic and critical t-value
+* Calculates the degrees of freedom that go into a welch's t-test
+* Calculates Cohen's d 
+
+hypothesis_testing.ipynb: Includes the examining of the four hypotheses based on the most common myths surrounding the results of football matches
+
+visualizations.py: Includes functions that perform the following tasks;
+* Creates a visualisation of a overlapping density plot
+* Creates a boxplot 
+* 
+
+Football_players_age_and_minutes.csv: Includes the columns with the values about players age and played minutes on the field, used for the second hypothesis.
+
+Football_players_by_nationality_and_goals.csv: Includes the columns about players nationality, number of goals and their position on the field, used for the 4th hypothesis.
+
+
+
 This repo contains:
 * Description of the project in a PDF
 * Three python starter files
@@ -28,8 +74,7 @@ Hypotheses to be tested:
     * $H_1$: If the if there are more cards in a game, it significantly more probable that there will be more goals.
     * $h_2$: If there are more cards in a game, it is significantly less probably that there will be more goals. 
 
-4. If a foreign player has more goals than an english player?
-    * $H_0$: A foreign player is no more likely to score more goals than an english player.
-    * $H_1$: A foreign player is more likely to score more goals than an english player.
-
-    
+4. If a team is winning at half time are they more likely to win at full-time
+    * $H_0$: A team is no more likely to win the game if they are leading at half time.
+    * $H_1$: A team is more likely to win the game outright if they are leading at half time.
+    * $H_2$: A team is less likely to win the game outright if they are leading at half time.
