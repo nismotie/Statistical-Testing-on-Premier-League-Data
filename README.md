@@ -1,7 +1,5 @@
 # mod3_project
 
-Team Members: Itua Etiobhio, Titus Bridgwood, Inesa Lisnic
-
 Goals
 * Decide on a subject to investigate and find relevant APIs and data sources
 * Create four hypotheses based on our research on the confirmed subject
@@ -10,15 +8,6 @@ Goals
 * Sampling the data and perform appropriate t-tests to the data samples 
 * Analyse t-test results and make decisions on the null hypothesis 
 * Make conclusions and create a presention on our findings
-
-Responsibilities
-* All team members to agree on the subject to investigate 
-* All team members to agree on four hypotheses 
-* Each member to pick atleast one hypothesis and conduct the appropriate t-test 
-* Each member to review t-test findings, make conclusions and actionable insights 
-* Each memebr to create technical notebook based on coducting the t-test and t-test findings
-* All team members to collabrate on creating the presentation and present the results of
-  the analysis
 
 Summary of files
 
