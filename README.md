@@ -1,4 +1,4 @@
-# mod3_project
+# Statistical Testing on Premier League Data
 
 Goals
 * Decide on a subject to investigate and find relevant APIs and data sources
