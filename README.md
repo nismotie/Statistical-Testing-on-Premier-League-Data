@@ -25,9 +25,8 @@ hypothesis_test.py: Includes functions that perform the following tasks;
 hypothesis_testing.ipynb: Includes the examining of the four hypotheses based on the most common myths surrounding the results of football matches
 
 visualizations.py: Includes functions that perform the following tasks;
-* Creates a visualisation of a overlapping density plot
-* Creates a boxplot 
-* 
+* Creates a visualisation of an overlapping density plot
+* Creates a boxplot
 
 Football_players_age_and_minutes.csv: Includes the columns with the values about players age and played minutes on the field, used for the second hypothesis.
 
